@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: images-service
+  labels:
+    component: images-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: images-service
+  template:
+    metadata:
+      labels:
+        component: images-service
+    spec:
+      containers:
+        - name: images-service
+          image: bogdanp3trovic/images-service
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PG_HOST
+              valueFrom:
+                secretKeyRef:
+                  key: pg_host
+                  name: booking-secret
+            - name: PG_USER
+              valueFrom:
+                secretKeyRef:
+                  key: pg_user
+                  name: booking-secret
+            - name: PG_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: pg_password
+                  name: booking-secret
+            - name: CONSUL_HOST
+              valueFrom:
+                secretKeyRef:
+                  key: consul_host
+                  name: booking-secret
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: images-service
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    component: images-service
+  type: ClusterIP
+
+
