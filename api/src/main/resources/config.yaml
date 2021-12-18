@@ -1,0 +1,25 @@
+kumuluzee:
+  name: images-service
+  env:
+    name: dev
+  version: 1.0.0
+  server:
+    base-url: http://localhost:8080
+    http:
+      port: 8080
+  datasources:
+    - jndi-name: jdbc/ImagesDS
+      connection-url: ${PG_HOST}
+      username: ${PG_USER}
+      password: ${PG_PASSWORD}
+      pool:
+        max-size: 1
+  config:
+    consul:
+      agent: ${CONSUL_HOST}
+  health:
+    checks:
+      data-source-health-check:
+        type: readiness
+        jndi-name: jdbc/ImagesDS
+

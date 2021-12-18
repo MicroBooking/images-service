@@ -4,8 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>images-service</artifactId>
-        <groupId>si.fri.rso</groupId>
+        <groupId>si.fri.rso.images</groupId>
         <version>1.0-SNAPSHOT</version>
+
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,5 +16,52 @@
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-cdi-weld</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-jax-rs-jersey</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-json-b-yasson</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-json-p-jsonp</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kumuluz.ee.rest</groupId>
+            <artifactId>kumuluzee-rest-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.cloudinary</groupId>
+            <artifactId>cloudinary-http44</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20190722</version>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee.rest-client</groupId>
+            <artifactId>kumuluzee-rest-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>si.fri.rso.images</groupId>
+            <artifactId>models</artifactId>
+        </dependency>
+
+
+    </dependencies>
 
 </project>
