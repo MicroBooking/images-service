@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 
 @Consumes({MediaType.APPLICATION_JSON, MediaType.MULTIPART_FORM_DATA})
 @Produces(MediaType.APPLICATION_JSON)
+@Path("images")
 public class ImageServiceApi {
     private Logger log = Logger.getLogger(ImageServiceApi.class.getName());
 
