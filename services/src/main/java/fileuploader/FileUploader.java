@@ -14,7 +14,10 @@ import java.util.Map;
 public class FileUploader {
     private final Cloudinary cloudinary;
     public FileUploader(){
-        this.cloudinary = new Cloudinary();
+        this.cloudinary = new Cloudinary(ObjectUtils.asMap(
+                "cloud_name", "dwon7bysc",
+                "api_key", System.getenv("CLOUDINARY_API_KEY"),
+                "api_secret", System.getenv("CLOUDINARY_API_SECRET")));
     }
 
     public Map<String, String> uploadImage(InputStream uploadedInputStream) throws IOException {
