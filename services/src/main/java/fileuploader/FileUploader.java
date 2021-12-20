@@ -15,7 +15,7 @@ public class FileUploader {
     private final Cloudinary cloudinary;
     public FileUploader(){
         this.cloudinary = new Cloudinary(ObjectUtils.asMap(
-                "cloud_name", "dwon7bysc",
+                "cloud_name", System.getenv("CLOUDINARY_CLOUD_NAME"),
                 "api_key", System.getenv("CLOUDINARY_API_KEY"),
                 "api_secret", System.getenv("CLOUDINARY_API_SECRET")));
     }
