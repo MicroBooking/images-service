@@ -57,7 +57,6 @@ public class ImageServiceApi {
             uploadResults = fileUploader.uploadImage(uploadedInputStream);
 
         } catch (Exception e) {
-            e.printStackTrace();
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
         Image image = new Image();
@@ -67,26 +66,5 @@ public class ImageServiceApi {
         Image addedImage = imagesBean.createImage(image);
 
         return Response.status(Response.Status.OK).entity(addedImage).build();
-    }
-
-    private void saveToFile(InputStream uploadedInputStream,
-                            String uploadedFileLocation) {
-
-        try {
-            OutputStream out = null;
-            int read = 0;
-            byte[] bytes = new byte[1024];
-
-            out = new FileOutputStream(new File(uploadedFileLocation));
-            while ((read = uploadedInputStream.read(bytes)) != -1) {
-                out.write(bytes, 0, read);
-            }
-            out.flush();
-            out.close();
-        } catch (IOException e) {
-
-            e.printStackTrace();
-        }
-
     }
 }

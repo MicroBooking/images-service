@@ -24,7 +24,6 @@ public class FileUploader {
     public Map<String, String> uploadImage(InputStream uploadedInputStream) throws IOException {
         byte[] uploadedBytes = ByteStreams.toByteArray(uploadedInputStream);
         Map uploadResult = this.cloudinary.uploader().upload(uploadedBytes, ObjectUtils.emptyMap());
-        System.out.println(uploadResult.toString());
         String imageUri = uploadResult.get("url").toString();
         String cloudinaryId = uploadResult.get("public_id").toString();
         Map<String, String> uploadData = new HashMap<>();
