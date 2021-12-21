@@ -3,6 +3,7 @@ package fileuploader;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.Transformation;
 import com.cloudinary.utils.ObjectUtils;
+import com.google.common.io.ByteStreams;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.io.IOException;
@@ -21,8 +22,10 @@ public class FileUploader {
     }
 
     public Map<String, String> uploadImage(InputStream uploadedInputStream) throws IOException {
-        Map uploadResult = this.cloudinary.uploader().upload(uploadedInputStream, ObjectUtils.emptyMap());
-        String imageUri = uploadResult.get("uri").toString();
+        byte[] uploadedBytes = ByteStreams.toByteArray(uploadedInputStream);
+        Map uploadResult = this.cloudinary.uploader().upload(uploadedBytes, ObjectUtils.emptyMap());
+        System.out.println(uploadResult.toString());
+        String imageUri = uploadResult.get("url").toString();
         String cloudinaryId = uploadResult.get("public_id").toString();
         Map<String, String> uploadData = new HashMap<>();
         uploadData.put("uri", imageUri);
