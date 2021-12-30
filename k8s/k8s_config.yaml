@@ -41,6 +41,21 @@ spec:
                 secretKeyRef:
                   key: consul_host
                   name: booking-secret
+            - name: CLOUDINARY_CLOUD_NAME
+              valueFrom:
+                secretKeyRef:
+                  key: cloudinary_cloud_name
+                  name: booking-secret
+            - name: CLOUDINARY_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: cloudinary_api_key
+                  name: booking-secret
+            - name: CLOUDINARY_API_SECRET
+              valueFrom:
+                secretKeyRef:
+                  key: cloudinary_api_secret
+                  name: booking-secret
 ---
 
 apiVersion: v1

@@ -30,7 +30,7 @@ public class ImagesBean {
 
     public List<Image> getImagesForListing(Integer listingId){
         TypedQuery<ImageEntity> query = em.createNamedQuery(
-                "ImageEntity.getByListingId", ImageEntity.class);
+                "ImageEntity.getByListingId", ImageEntity.class).setParameter("id", listingId);
         List<ImageEntity> resultList = query.getResultList();
         return resultList.stream().map(ImageConverter::toDto).collect(Collectors.toList());
     }

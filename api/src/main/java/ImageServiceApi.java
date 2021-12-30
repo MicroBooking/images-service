@@ -62,7 +62,7 @@ public class ImageServiceApi {
         Image image = new Image();
         image.setListingId(listingId);
         image.setUrl(uploadResults.get("url"));
-        image.setCloudinaryId(uploadResults.get("publicId"));
+        image.setCloudinaryId(uploadResults.get("public_id"));
         Image addedImage = imagesBean.createImage(image);
 
         return Response.status(Response.Status.OK).entity(addedImage).build();

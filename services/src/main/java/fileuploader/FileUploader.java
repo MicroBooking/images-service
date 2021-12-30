@@ -27,7 +27,7 @@ public class FileUploader {
         String imageUri = uploadResult.get("url").toString();
         String cloudinaryId = uploadResult.get("public_id").toString();
         Map<String, String> uploadData = new HashMap<>();
-        uploadData.put("uri", imageUri);
+        uploadData.put("url", imageUri);
         uploadData.put("public_id", cloudinaryId);
 
         return uploadData;
