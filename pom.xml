@@ -30,6 +30,7 @@
 
         <postgresql.version>42.3.0</postgresql.version>
         <cloudinary.version>1.2.1</cloudinary.version>
+        <kumuluzee-cors.version>1.0.6</kumuluzee-cors.version>
     </properties>
 
     <dependencyManagement>
@@ -122,6 +123,11 @@
                 <groupId>com.cloudinary</groupId>
                 <artifactId>cloudinary-http44</artifactId>
                 <version>${cloudinary.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kumuluz.ee.cors</groupId>
+                <artifactId>kumuluzee-cors</artifactId>
+                <version>${kumuluzee-cors.version}</version>
             </dependency>
 
         </dependencies>

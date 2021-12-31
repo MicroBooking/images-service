@@ -65,6 +65,8 @@ public class ImageServiceApi {
         image.setCloudinaryId(uploadResults.get("public_id"));
         Image addedImage = imagesBean.createImage(image);
 
+        log.info("Uploaded image to Cloudinary");
+
         return Response.status(Response.Status.OK).entity(addedImage).build();
     }
 }

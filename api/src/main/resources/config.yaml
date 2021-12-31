@@ -22,4 +22,7 @@ kumuluzee:
       data-source-health-check:
         type: readiness
         jndi-name: jdbc/ImagesDS
+  cors-filter:
+    servlet:
+      allow-origin: "*"
 
