@@ -43,5 +43,5 @@ kumuluzee:
         auto-commit-interval-ms: 1000
         auto-offset-reset: earliest
         session-timeout-ms: 30000
-        sasl-jaas-config:
+        sasl-jaas-config: org.apache.kafka.common.security.scram.ScramLoginModule required username="h2ihozli" password="7RJbPr-cyeB7078BpmGO_E2KDlU7-8Ed";
 
