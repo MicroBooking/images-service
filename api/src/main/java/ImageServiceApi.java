@@ -6,6 +6,7 @@ import dto.ImageCreateDto;
 import fileuploader.FileUploader;
 import org.apache.commons.io.IOUtils;
 import org.glassfish.jersey.media.multipart.FormDataParam;
+import streaming.EventProducerStreaming;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -29,6 +30,9 @@ public class ImageServiceApi {
 
     @Inject
     private FileUploader fileUploader;
+
+    @Inject
+    private EventProducerStreaming eventProducer;
 
     @GET
     public Response getAllImages(){
@@ -66,6 +70,8 @@ public class ImageServiceApi {
         Image addedImage = imagesBean.createImage(image);
 
         log.info("Uploaded image to Cloudinary");
+        eventProducer.produceMessage(uploadResults.get("public_id"), uploadResults.get("url"));
+
 
         return Response.status(Response.Status.OK).entity(addedImage).build();
     }

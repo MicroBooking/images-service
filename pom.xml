@@ -31,6 +31,7 @@
         <postgresql.version>42.3.0</postgresql.version>
         <cloudinary.version>1.2.1</cloudinary.version>
         <kumuluzee-cors.version>1.0.6</kumuluzee-cors.version>
+        <kumuluzee-streaming.version>1.2.2</kumuluzee-streaming.version>
     </properties>
 
     <dependencyManagement>
@@ -81,6 +82,11 @@
                 <groupId>com.kumuluz.ee.rest-client</groupId>
                 <artifactId>kumuluzee-rest-client</artifactId>
                 <version>${kumuluzee-rest-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kumuluz.ee.streaming</groupId>
+                <artifactId>kumuluzee-streaming-kafka</artifactId>
+                <version>${kumuluzee-streaming.version}</version>
             </dependency>
             <dependency>
                 <groupId>si.fri.rso.images</groupId>
