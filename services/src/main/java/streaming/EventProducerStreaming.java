@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class EventProducerStreaming {
     private static final Logger log = Logger.getLogger(EventProducerStreaming.class.getName());
 
-    private static final String TOPIC_NAME = "image-upload";
+    private static final String TOPIC_NAME = "h2ihozli-image-upload";
 
     @Inject
     @StreamProducer
