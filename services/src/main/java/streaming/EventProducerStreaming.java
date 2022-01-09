@@ -5,10 +5,12 @@ import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.json.JSONObject;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 import java.util.logging.Logger;
 
+@ApplicationScoped
 public class EventProducerStreaming {
     private static final Logger log = Logger.getLogger(EventProducerStreaming.class.getName());
 
