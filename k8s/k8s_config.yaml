@@ -56,6 +56,16 @@ spec:
                 secretKeyRef:
                   key: cloudinary_api_secret
                   name: booking-secret
+            - name: KAFKA_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: kafka_username
+                  name: booking-secret
+            - name: KAFKA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: kafka_password
+                  name: booking-secret
 ---
 
 apiVersion: v1
